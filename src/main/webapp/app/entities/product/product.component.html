@@ -2,10 +2,9 @@
     <h2 id="page-heading">
         <span jhiTranslate="storeApp.product.home.title">Products</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product"
-                [routerLink]="['/product/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span jhiTranslate="storeApp.product.home.createLabel">
+            <span  jhiTranslate="storeApp.product.home.createLabel">
             Create a new Product
             </span>
         </button>
@@ -18,7 +17,6 @@
     <div class="alert alert-warning" id="no-result" *ngIf="products?.length === 0">
         <span jhiTranslate="storeApp.product.home.notFound">No products found</span>
     </div>
-
     <div *ngIf="products">
         <div class="list-group">
             <a class="list-group-item list-group-item-action flex-column align-items-start"
@@ -35,7 +33,7 @@
                             </a>
                             <small *ngIf="product.productCategory">
                                 <a [routerLink]="['/product-category', product.productCategory?.id, 'view']">
-                                    Category: {{ product.productCategory?.id }}
+                                    Category: {{ product.productCategory?.name }}
                                 </a>
                             </small>
                         </div>
@@ -69,9 +67,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage"
-                            [maxSize]="5" [rotate]="true" [boundaryLinks]="true"
-                            (pageChange)="loadPage($event)"></ngb-pagination>
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
         </div>
     </div>
 </div>
